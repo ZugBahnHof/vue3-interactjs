@@ -114,6 +114,12 @@ onUnmounted(() => {
   interactInstance.value?.unset();
   interactInstance.value = null;
 });
+
+defineExpose({
+  interact: interactInstance,
+  $el: root,
+  root,
+});
 </script>
 
 <template>
