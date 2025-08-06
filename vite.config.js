@@ -11,16 +11,16 @@ export default defineConfig({
     lib: {
       /* eslint-env node */
       entry: resolve(__dirname, "src/index.js"),
-      name: "vue-interactjs",
+      name: "vue3-interactjs",
     },
     output: [
       {
         format: "esm",
-        file: "dist/vue-draggable-grid.esm.js",
+        file: "dist/vue3-interactjs.esm.js",
       },
       {
         format: "cjs",
-        file: "dist/vue-draggable-grid.common.js",
+        file: "dist/vue3-interactjs.common.js",
       },
     ],
     rollupOptions: {

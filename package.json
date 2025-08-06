@@ -1,5 +1,5 @@
 {
-  "name": "vue-interactjs",
+  "name": "vue3-interactjs",
   "description": "interactjs component for Vue3",
   "version": "1.0.0",
   "keywords": [
@@ -19,11 +19,11 @@
     "ZugBahnHof"
   ],
   "repository": "https://github.com/ZugBahnHof/vue3-interactjs",
-  "main": "dist/vue-interactjs.common.js",
-  "module": "dist/vue-interactjs.esm.js",
+  "main": "dist/vue3-interactjs.common.js",
+  "module": "dist/vue3-interactjs.esm.js",
   "files": [
-    "dist/vue-interactjs.common.js",
-    "dist/vue-interactjs.esm.js",
+    "dist/vue3-interactjs.common.js",
+    "dist/vue3-interactjs.esm.js",
     "src",
     "types/index.d.ts"
   ],

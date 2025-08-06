@@ -1,26 +1,19 @@
-# vue-interactjs
+# vue3-interactjs
 
-Vue-interactjs is **[interact.js](https://interactjs.io/)** component for [Vue](http://vuejs.org).
+Vue3-interactjs is **[interact.js](https://interactjs.io/)** component for [Vue3](http://vuejs.org).
 
 # Install
 
 ## NPM
 
 ```sh
-$ npm install vue-interactjs
+$ npm install vue3-interactjs
 ```
 
 ## Yarn
 
 ```sh
-$ yarn add vue-interactjs
-```
-
-## HTML
-
-```html
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.umd.js"></script>
+$ yarn add vue3-interactjs
 ```
 
 # Registration
@@ -29,22 +22,13 @@ $ yarn add vue-interactjs
 
 ```javascript
 import { createApp } from "vue";
-import VueInteractJs from "vue-interactjs";
+import VueInteractJs from "vue3-interactjs";
 
 const app = createApp(...);
 app.use(VueInteractJs);
 
 // Now the app has started!
 app.mount("#app");
-```
-
-## HTML
-
-```html
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.umd.js"></script>
-
-<div id="#app">Vue.use(window.vueInteractjs)</div>
 ```
 
 # Component
@@ -165,7 +149,7 @@ app.mount("#app");
 Clone this repository and run command
 
 ```sh
-$ npm run demo
+$ npm run demo:dev
 ```
 
 ## interact.js API
@@ -175,4 +159,4 @@ $ npm run demo
 
 # License
 
-[MIT](https://github.com/yoroshikudozo/vue-interactjs/blob/master/LICENSE)
+[MIT](https://github.com/ZugBahnHof/vue3-interactjs/blob/master/LICENSE)
