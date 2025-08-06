@@ -4,27 +4,23 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
   plugins: [vue(), peerDepsExternal()],
   build: {
     lib: {
-      /* eslint-env node */
       entry: resolve(__dirname, "src/index.js"),
-      name: "vue3-interactjs",
+      name: "Vue3Interactjs",
+      formats: ["es", "cjs"],
+      fileName: (format) =>
+        format === "es"
+          ? "vue3-interactjs.esm.js"
+          : "vue3-interactjs.common.js",
     },
-    output: [
-      {
-        format: "esm",
-        file: "dist/vue3-interactjs.esm.js",
-      },
-      {
-        format: "cjs",
-        file: "dist/vue3-interactjs.common.js",
-      },
-    ],
     rollupOptions: {
+      external: ["vue"],
       output: {
+        exports: "auto",
         globals: {
           vue: "Vue",
         },

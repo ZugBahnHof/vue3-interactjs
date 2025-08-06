@@ -4,6 +4,8 @@ public
 dist
 coverage
 docs/.vuepress/dist
+docs/.vuepress/.cache
+docs/.vuepress/.temp
 
 # local env files
 .env.local
