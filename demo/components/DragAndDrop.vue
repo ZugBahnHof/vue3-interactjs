@@ -45,12 +45,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import interact from "interactjs";
 import { DropEvent } from "@interactjs/actions/drop/DropEvent";
 import { DragEvent } from "@interactjs/actions/drag/plugin";
 
-export default Vue.extend({
+export default {
   name: "DragAndDrop",
   data: () => ({
     dragOption: {
@@ -58,16 +57,16 @@ export default Vue.extend({
       modifiers: [
         interact.modifiers.restrictRect({
           restriction: "parent",
-          endOnly: true
-        })
+          endOnly: true,
+        }),
       ],
-      autoScroll: true
+      autoScroll: true,
     },
     dropOption: {
       accept: "#yes-drop",
       // Require a 75% element overlap for a drop to be possible
-      overlap: 0.75
-    }
+      overlap: 0.75,
+    },
   }),
   methods: {
     dragmove(event: DragEvent) {
@@ -85,11 +84,11 @@ export default Vue.extend({
       target.setAttribute("data-x", String(x));
       target.setAttribute("data-y", String(y));
     },
-    dropactivate: function(event: DropEvent) {
+    dropactivate: function (event: DropEvent) {
       // add active dropzone feedback
       event.target.classList.add("drop-active");
     },
-    dragenter: function(event: DropEvent) {
+    dragenter: function (event: DropEvent) {
       const draggableElement = event.relatedTarget;
       const dropzoneElement = event.target;
 
@@ -100,22 +99,22 @@ export default Vue.extend({
         draggableElement.textContent = "Dragged in";
       }
     },
-    dragleave: function(event: DropEvent) {
+    dragleave: function (event: DropEvent) {
       // remove the drop feedback style
       event.target.classList.remove("drop-target");
       event.relatedTarget.classList.remove("can-drop");
       event.relatedTarget.textContent = "Dragged out";
     },
-    drop: function(event: DropEvent) {
+    drop: function (event: DropEvent) {
       event.relatedTarget.textContent = "Dropped";
     },
-    dropdeactivate: function(event: DropEvent) {
+    dropdeactivate: function (event: DropEvent) {
       // remove active dropzone feedback
       event.target.classList.remove("drop-active");
       event.target.classList.remove("drop-target");
-    }
-  }
-});
+    },
+  },
+};
 </script>
 
 <style scoped>

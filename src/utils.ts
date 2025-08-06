@@ -3,20 +3,20 @@ import {
   dropEvents,
   gestureEvents,
   pointerEvents,
-  resizeEvents
-} from "@/events";
-import { Interactable } from "@interactjs/types";
+  resizeEvents,
+} from "./events";
+import { Interactable } from "interactjs";
+import { EmitFn } from "vue";
 
-const bindEvents = (events: string[]) => (
-  interact: Interactable,
-  emit: Vue["$emit"]
-): void => {
-  events.forEach(eventName => {
-    interact.on(eventName, (...args: unknown[]) => {
-      emit(eventName, ...args);
+const bindEvents =
+  (events: string[]) =>
+  (interact: Interactable, emit: EmitFn): void => {
+    events.forEach((eventName) => {
+      interact.on(eventName, (...args: unknown[]) => {
+        emit(eventName, ...args);
+      });
     });
-  });
-};
+  };
 
 export const bindPointerEvents = bindEvents(pointerEvents);
 export const bindDragEvents = bindEvents(dragEvents);

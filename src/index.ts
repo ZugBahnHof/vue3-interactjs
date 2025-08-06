@@ -1,27 +1,11 @@
-import getInteractComponent from "@/interact";
-import interact from "interactjs";
-import { PluginObject, VueConstructor } from "vue";
+import Interact from "./Interact.vue";
+import { App, Plugin } from "vue";
 
-declare global {
-  interface Window {
-    Vue: VueConstructor;
-  }
-}
-
-const version = "__VERSION__";
-
-const install = (Vue: VueConstructor): void => {
-  const InteractComponent = getInteractComponent(interact);
-
-  Vue.component("Interact", InteractComponent);
+const install = (app: App): void => {
+  app.component("Interact", Interact);
 };
 
-const plugin: PluginObject<VueConstructor> = {
+const plugin: Plugin = {
   install,
-  version
 };
 export default plugin;
-
-if (typeof window !== "undefined" && window.Vue) {
-  window.Vue.use(plugin);
-}

@@ -20,12 +20,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import interact from "interactjs";
-import { InteractEvent } from "@interactjs/types";
+import { InteractEvent } from "interactjs";
 
-export default Vue.extend({
-  name: "Dragging",
+export default {
+  name: "DemoDragging",
   data: () => ({
     options: {
       // enable inertial throwing
@@ -34,12 +33,12 @@ export default Vue.extend({
       modifiers: [
         interact.modifiers.restrictRect({
           restriction: "parent",
-          endOnly: true
-        })
+          endOnly: true,
+        }),
       ],
       // enable autoScroll
-      autoScroll: true
-    }
+      autoScroll: true,
+    },
   }),
   methods: {
     dragmove(event: InteractEvent<"drag">) {
@@ -56,9 +55,9 @@ export default Vue.extend({
       // update the posiion attributes
       target.setAttribute("data-x", String(x));
       target.setAttribute("data-y", String(y));
-    }
-  }
-});
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -1,35 +1,21 @@
 # Getting Started
 
-> We will be using [ES2015](https://github.com/lukehoban/es6features) in the code samples in the guide.
-
-
-## HTML
-
-```html
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.js"></script>
-
-<div id="#app">
-  <!-- NOTE: here the outputs -->
-</div>
-```
-
-## JavaScript
+It's very simple to use this library.
+You just need to import the library and use it in your Vue app.
 
 ```javascript
-// If using a module system (e.g. via Vue CLI), import Vue and vue-interactjs and then call Vue.use(vue-interactjs).
-// import Vue from 'vue'
-// import vue-interactjs from 'vue-interactjs'
-// 
-// Vue.use(vue-interactjs)
+import { createApp } from "vue";
+import VueInteractJs from "vue-interactjs";
 
-// NOTE: here the example
+const app = createApp({});
+
+app.use(VueInteractJs);
 
 // Now the app has started!
-new Vue({ }).$mount('#app')
+app.mount("#app");
 ```
 
-Output the following:
+Your HTML needs to look like this:
 
 ```html
 <div id="#app">

@@ -7,4 +7,4 @@ Features include:
 - Feature2
 - ...
 
-[Get started](./started/) or play with the [demo](https://github.com//vue-interactjs/tree/dev/demo) (see [`README.md`](https://github.com//vue-interactjs/) to run them).
+[Get started](./started/) or play with the [demo](https://github.com/ZugBahnHof/vue3-interactjs/tree/dev/demo) (see [`README.md`](https://github.com/ZugBahnHof/vue3-interactjs/) to run them).

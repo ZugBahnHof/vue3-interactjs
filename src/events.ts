@@ -2,13 +2,13 @@ export const dragEvents = [
   "dragstart",
   "dragmove",
   "draginertiastart",
-  "dragend"
+  "dragend",
 ];
 export const resizeEvents = [
   "resizestart",
   "resizemove",
   "resizeinertiastart",
-  "resizeend"
+  "resizeend",
 ];
 export const dropEvents = [
   "dropactivate",
@@ -16,7 +16,7 @@ export const dropEvents = [
   "dragenter",
   "dragleave",
   "dropmove",
-  "drop"
+  "drop",
 ];
 export const gestureEvents = ["gesturestart", "gesturemove", "gestureend"];
 export const pointerEvents = [
@@ -26,5 +26,5 @@ export const pointerEvents = [
   "cancel",
   "tap",
   "doubletap",
-  "hold"
+  "hold",
 ];

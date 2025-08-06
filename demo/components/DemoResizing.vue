@@ -16,32 +16,31 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import interact from "interactjs";
-import { DragEvent, ResizeEvent } from "@interactjs/types";
+import { DragEvent, ResizeEvent } from "interactjs";
 
-export default Vue.extend({
-  name: "Resizing",
+export default {
+  name: "DemoResizing",
 
   data: () => ({
     resizeOption: {
-      edges: { left: true, right: true, bottom: true, top: true }
+      edges: { left: true, right: true, bottom: true, top: true },
     },
     dragOption: {
       inertia: true,
       modifiers: [
         interact.modifiers.restrictRect({
           restriction: "parent",
-          endOnly: true
-        })
+          endOnly: true,
+        }),
       ],
-      autoScroll: true
+      autoScroll: true,
     },
     x: 0,
     y: 0,
     w: 120,
     h: 200,
-    text: "Resize from any edge or corner"
+    text: "Resize from any edge or corner",
   }),
 
   computed: {
@@ -49,9 +48,9 @@ export default Vue.extend({
       return {
         height: `${this.h}px`,
         width: `${this.w}px`,
-        transform: `translate(${this.x}px, ${this.y}px)`
+        transform: `translate(${this.x}px, ${this.y}px)`,
       };
-    }
+    },
   },
 
   methods: {
@@ -70,12 +69,12 @@ export default Vue.extend({
         this.y += event.deltaRect.top;
 
         this.text = `${Math.round(event.rect.width)}\u00D7${Math.round(
-          event.rect.height
+          event.rect.height,
         )}`;
       }
-    }
-  }
-});
+    },
+  },
+};
 </script>
 
 <style scoped>

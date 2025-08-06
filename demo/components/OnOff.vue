@@ -47,15 +47,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import interact from "interactjs";
-import { DragEvent, ResizeEvent } from "@interactjs/types";
+import { DragEvent, ResizeEvent } from "interactjs";
 
-export default Vue.extend({
+export default {
   name: "OnOff",
   data: () => ({
     resizeOption: {
-      edges: { left: true, right: true, bottom: true, top: true }
+      edges: { left: true, right: true, bottom: true, top: true },
     },
     resizable: true,
     dragOption: {
@@ -63,17 +62,17 @@ export default Vue.extend({
       modifiers: [
         interact.modifiers.restrictRect({
           restriction: "parent",
-          endOnly: true
-        })
+          endOnly: true,
+        }),
       ],
-      autoScroll: true
+      autoScroll: true,
     },
     draggable: true,
     x: 0,
     y: 0,
     w: 200,
     h: 200,
-    text: "Resize from any edge or corner"
+    text: "Resize from any edge or corner",
   }),
 
   computed: {
@@ -81,9 +80,9 @@ export default Vue.extend({
       return {
         height: `${this.h}px`,
         width: `${this.w}px`,
-        transform: `translate(${this.x}px, ${this.y}px)`
+        transform: `translate(${this.x}px, ${this.y}px)`,
       };
-    }
+    },
   },
 
   methods: {
@@ -102,7 +101,7 @@ export default Vue.extend({
         this.y += event.deltaRect.top;
 
         this.text = `${Math.round(event.rect.width)}\u00D7${Math.round(
-          event.rect.height
+          event.rect.height,
         )}`;
       }
     },
@@ -111,9 +110,9 @@ export default Vue.extend({
     },
     toggleResizable() {
       this.resizable = !this.resizable;
-    }
-  }
-});
+    },
+  },
+};
 </script>
 
 <style scoped>

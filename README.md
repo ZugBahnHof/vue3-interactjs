@@ -28,13 +28,14 @@ $ yarn add vue-interactjs
 ## JavaScript
 
 ```javascript
-import Vue from "vue";
+import { createApp } from "vue";
 import VueInteractJs from "vue-interactjs";
 
-Vue.use(VueInteractJs);
+const app = createApp(...);
+app.use(VueInteractJs);
 
 // Now the app has started!
-new Vue({}).$mount("#app");
+app.mount("#app");
 ```
 
 ## HTML
@@ -43,9 +44,7 @@ new Vue({}).$mount("#app");
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-interactjs/dist/vue-interactjs.umd.js"></script>
 
-<div id="#app">
-  Vue.use(window.vueInteractjs)
-</div>
+<div id="#app">Vue.use(window.vueInteractjs)</div>
 ```
 
 # Component
@@ -67,21 +66,20 @@ new Vue({}).$mount("#app");
 </template>
 
 <script>
-  import Vue from "vue";
   import interact from "interactjs";
 
   export default {
     name: "resizeDrag",
     data: () => ({
       resizeOption: {
-        edges: { left: true, right: true, bottom: true, top: true }
+        edges: { left: true, right: true, bottom: true, top: true },
       },
       dragOption: {
         modifiers: [
           interact.modifiers.restrictRect({
             restriction: "parent",
-            endOnly: true
-          })
+            endOnly: true,
+          }),
         ],
       },
       // values for interact.js transformation
@@ -98,7 +96,7 @@ new Vue({}).$mount("#app");
           width: `${this.w}px`,
           transform: `translate(${this.x}px, ${this.y}px)`,
         };
-      }
+      },
     },
 
     methods: {
@@ -112,21 +110,21 @@ new Vue({}).$mount("#app");
 
         this.x += event.deltaRect.left;
         this.y += event.deltaRect.top;
-      }
-    }
+      },
+    },
   };
 </script>
 
 <style scoped>
-.resize-drag {
-  box-sizing: border-box;
-  background: #41b883;
+  .resize-drag {
+    box-sizing: border-box;
+    background: #41b883;
 
-  /* To prevent interact.js warnings */
-  user-select: none;
-  -ms-touch-action: none;
-  touch-action: none;
-}
+    /* To prevent interact.js warnings */
+    user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+  }
 </style>
 ```
 

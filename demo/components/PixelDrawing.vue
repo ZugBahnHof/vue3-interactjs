@@ -15,11 +15,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import interact from "interactjs";
-import { InteractEvent } from "@interactjs/types";
+import { InteractEvent } from "interactjs";
 
-export default Vue.extend({
+export default {
   name: "PixelDrawing",
 
   data: () => ({
@@ -29,18 +28,18 @@ export default Vue.extend({
       origin: "self",
       modifiers: [
         interact.modifiers.snap({
-          targets: [interact.snappers.grid({ x: 16, y: 16 })]
-        })
-      ]
+          targets: [interact.snappers.grid({ x: 16, y: 16 })],
+        }),
+      ],
     },
     width: 300,
-    height: 200
+    height: 200,
   }),
 
   computed: {
     interact() {
       return this.$refs.myInteract;
-    }
+    },
   },
 
   mounted() {
@@ -56,8 +55,9 @@ export default Vue.extend({
 
       // set color based on drag angle and speed
       if (context) {
-        context.fillStyle = `hsl(${dragAngle}, 86%, ${30 +
-          Math.min(event.speed / 1000, 1) * 50}%)`;
+        context.fillStyle = `hsl(${dragAngle}, 86%, ${
+          30 + Math.min(event.speed / 1000, 1) * 50
+        }%)`;
 
         // draw squares
         context.fillRect(event.pageX - 16 / 2, event.pageY - 16 / 2, 16, 16);
@@ -72,12 +72,12 @@ export default Vue.extend({
       }
     },
     resizeCanvas() {
-      const rect = (this.interact as Vue).$el.getBoundingClientRect();
+      const rect = this.interact.$el.getBoundingClientRect();
       this.width = rect.width;
       this.height = rect.height;
-    }
-  }
-});
+    },
+  },
+};
 </script>
 
 <style scoped>

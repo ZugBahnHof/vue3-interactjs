@@ -60,31 +60,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script setup lang="ts">
 import PixelDrawing from "./components/PixelDrawing.vue";
-import Dragging from "./components/Dragging.vue";
+import DemoDragging from "./components/DemoDragging.vue";
 import DragAndDrop from "./components/DragAndDrop.vue";
-import Snapping from "./components/Snapping.vue";
-import Resizing from "./components/Resizing.vue";
+import DemoSnapping from "./components/DemoSnapping.vue";
+import DemoResizing from "./components/DemoResizing.vue";
 import OnOff from "./components/OnOff.vue";
 import MultiTouch from "./components/MultiTouch.vue";
 import PinchToZoom from "./components/PinchToZoom.vue";
-
-export default Vue.extend({
-  name: "demo",
-
-  components: {
-    PixelDrawing,
-    DemoDragging: Dragging,
-    DragAndDrop,
-    DemoSnapping: Snapping,
-    DemoResizing: Resizing,
-    OnOff,
-    MultiTouch,
-    PinchToZoom
-  }
-});
 </script>
 
 <style scoped>

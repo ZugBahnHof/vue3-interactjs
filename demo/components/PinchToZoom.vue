@@ -22,8 +22,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { GestureEvent } from "@interactjs/types";
+import { GestureEvent } from "interactjs";
 import { DragEvent } from "@interactjs/actions/drag/plugin";
 
 type GestureAndDragEvent = GestureEvent & DragEvent;
@@ -34,7 +33,7 @@ const getTransform = (angle: number, scale: number) => {
   return `${rotate} ${scaleText}`;
 };
 
-export default Vue.extend({
+export default {
   name: "PinchToZoom",
 
   data: () => ({
@@ -45,20 +44,20 @@ export default Vue.extend({
     x: 0,
     y: 0,
     touching: false,
-    timer: 0
+    timer: 0,
   }),
 
   computed: {
     areaStyle() {
       return {
-        transform: `translate(${this.x}px, ${this.y}px)`
+        transform: `translate(${this.x}px, ${this.y}px)`,
       };
     },
     imageStyle() {
       return {
-        transform: getTransform(this.angle, this.scale)
+        transform: getTransform(this.angle, this.scale),
       };
-    }
+    },
   },
 
   methods: {
@@ -90,9 +89,9 @@ export default Vue.extend({
       this.touchAngle = 0;
       this.scale = 1;
       this.tempScale = 1;
-    }
-  }
-});
+    },
+  },
+};
 </script>
 
 <style scoped>

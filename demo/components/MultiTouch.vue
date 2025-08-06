@@ -18,30 +18,29 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import { GestureEvent } from "@interactjs/types";
+import { GestureEvent } from "interactjs";
 
-export default Vue.extend({
+export default {
   name: "MultiTouch",
 
   data: () => ({
-    angle: 0
+    angle: 0,
   }),
 
   computed: {
     style() {
       return {
-        transform: `rotate(${this.angle}deg)`
+        transform: `rotate(${this.angle}deg)`,
       };
-    }
+    },
   },
 
   methods: {
     gesturemove(event: GestureEvent) {
       this.angle += event.da;
-    }
-  }
-});
+    },
+  },
+};
 </script>
 
 <style scoped>
