@@ -1,7 +1,7 @@
 {
   "name": "vue3-interactjs",
   "description": "interactjs component for Vue3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "interact",
     "interactjs",
@@ -49,6 +49,8 @@
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
+    "@vuepress/bundler-vite": "^2.0.0-rc.24",
+    "@vuepress/theme-default": "^2.0.0-rc.112",
     "eslint": "^8.57.1",
     "eslint-plugin-vue": "^10.2.0",
     "prettier": "3.5.3",
@@ -61,9 +63,7 @@
     "typescript": "^5.9.2",
     "vite": "^6.3.5",
     "vue-eslint-parser": "^10.2.0",
-    "vuepress": "^2.0.0-rc.24",
-    "@vuepress/bundler-vite": "^2.0.0-rc.24",
-    "@vuepress/theme-default": "^2.0.0-rc.112"
+    "vuepress": "^2.0.0-rc.24"
   },
   "types": "types/index.d.ts"
 }
