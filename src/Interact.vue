@@ -7,14 +7,9 @@ import {
   PropType,
   onMounted,
   onUnmounted,
+  onBeforeUnmount,
 } from "vue";
-import {
-  bindDragEvents,
-  bindDropEvents,
-  bindGestureEvents,
-  bindPointerEvents,
-  bindResizeEvents,
-} from "./utils";
+import { useInteractEvents } from "./utils";
 import { Interactable, Target } from "interactjs";
 import { DraggableOptions } from "@interactjs/actions/drag/plugin";
 import { DropzoneOptions } from "@interactjs/actions/drop/plugin";
@@ -68,9 +63,11 @@ const emit = defineEmits([
   ...pointerEvents,
 ]);
 
+const events = useInteractEvents(interactInstance, emit);
+
 onMounted(() => {
   interactInstance.value = interact(root.value as Target);
-  bindPointerEvents(interactInstance.value, emit.bind(this));
+  events.enablePointer();
   emit("ready", interactInstance.value);
 });
 
@@ -82,43 +79,58 @@ watchEffect(() => {
 
   if (props.draggable) {
     initDrag();
+  } else {
+    events.disableDrag();
   }
+
   if (props.resizable) {
     initResize();
+  } else {
+    events.disableResize();
   }
+
   if (props.droppable) {
     initDrop();
+  } else {
+    events.disableDrop();
   }
+
   if (props.gesturable) {
     initGesture();
+  } else {
+    events.disableGesture();
   }
 });
 function initDrag() {
   console.log("Drag init");
   interactInstance.value?.draggable(props.dragOption);
-  bindDragEvents(interactInstance.value as Interactable, emit);
+  events.enableDrag();
 }
 function initResize() {
   interactInstance.value?.resizable(props.resizeOption);
-  bindResizeEvents(interactInstance.value as Interactable, emit);
+  events.enableResize();
 }
 function initDrop() {
   interactInstance.value?.dropzone(props.dropOption);
-  bindDropEvents(interactInstance.value as Interactable, emit);
+  events.enableDrop();
 }
 function initGesture() {
   interactInstance.value?.gesturable(props.gestureOption);
-  bindGestureEvents(interactInstance.value as Interactable, emit);
+  events.enableGesture();
 }
-onUnmounted(() => {
+function disable() {
   interactInstance.value?.unset();
   interactInstance.value = null;
-});
+  console.log("Disabled");
+}
+onBeforeUnmount(disable);
+onUnmounted(disable);
 
 defineExpose({
   interact: interactInstance,
   $el: root,
   root,
+  disable,
 });
 </script>
 
